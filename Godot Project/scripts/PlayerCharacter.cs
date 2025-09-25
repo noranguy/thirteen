@@ -9,7 +9,7 @@ public partial class PlayerCharacter : CharacterBody2D
 	bool _moveable = true;
 
 	// Player speed
-	public const float Speed = 70;
+	public const float Speed = 100;
 	public RayCast2D _ray; // Ignore ray for now
 	AnimatedSprite2D walking;
 
