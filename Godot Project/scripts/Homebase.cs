@@ -15,4 +15,7 @@ public partial class Homebase : Node2D
 	public override void _Process(double delta)
 	{
 	}
+	void _on_shop_area_body_entered(Node2D body){
+		GD.Print("true");
+	}
 }

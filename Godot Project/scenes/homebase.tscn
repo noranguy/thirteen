@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://6npwlki12q04"]
+[gd_scene load_steps=8 format=3 uid="uid://6npwlki12q04"]
 
 [ext_resource type="Script" uid="uid://dqpt3wm5lo2id" path="res://scripts/Homebase.cs" id="1_c480r"]
 [ext_resource type="Texture2D" uid="uid://d2lksmc0j4tqm" path="res://assets/safehouse_draft.png" id="2_b7ipk"]
@@ -7,6 +7,17 @@
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_c480r"]
 a = Vector2(50.9977, -627)
 b = Vector2(52.0023, 650)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c480r"]
+size = Vector2(411, 109)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b7ipk"]
+radius = 24.0
+height = 412.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wkc8p"]
+radius = 19.0
+height = 274.0
 
 [node name="Homebase" type="Node2D"]
 script = ExtResource("1_c480r")
@@ -26,6 +37,8 @@ texture = ExtResource("2_b7ipk")
 [node name="PlayerCharacter" parent="." instance=ExtResource("2_c480r")]
 z_index = 1
 scale = Vector2(2, 2)
+collision_layer = 8
+collision_mask = 7
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter"]
 z_index = 10
@@ -67,3 +80,29 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WestWall"]
 position = Vector2(-690, -34)
 shape = SubResource("SegmentShape2D_c480r")
+
+[node name="Areas" type="Node2D" parent="."]
+
+[node name="Shop" type="Node2D" parent="Areas"]
+
+[node name="ShopArea" type="Area2D" parent="Areas/Shop"]
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Shop/ShopArea"]
+position = Vector2(0.5, -301.5)
+shape = SubResource("RectangleShape2D_c480r")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Areas/Shop"]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Shop/StaticBody2D"]
+position = Vector2(0, -331)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_b7ipk")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Areas/Shop/StaticBody2D"]
+position = Vector2(0, -288)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_wkc8p")
+
+[connection signal="body_entered" from="Areas/Shop/ShopArea" to="." method="_on_shop_area_body_entered"]
