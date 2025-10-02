@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp334041qy80o"]
+
+[ext_resource type="Texture2D" uid="uid://nf2f72tgv2hn" path="res://assets/stsshop.png" id="1_lx5au"]
+[ext_resource type="Script" uid="uid://ufr2bqwvadir" path="res://scripts/Shop.cs" id="1_xfvoa"]
+
+[node name="Shop" type="Node2D"]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_xfvoa")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1080.0
+offset_bottom = 607.0
+texture = ExtResource("1_lx5au")
+stretch_mode = 2
+
+[node name="Button" type="Button" parent="."]
+offset_left = 340.0
+offset_top = 236.667
+offset_right = 742.0
+offset_bottom = 366.667
+text = "Leave"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
