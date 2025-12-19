@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5e7b32tsukfo"]
+
+[ext_resource type="Script" uid="uid://danxm6isyifhu" path="res://scripts/InPlay/Card.cs" id="1_4pniv"]
+[ext_resource type="Texture2D" uid="uid://nhuyvjpm0ql7" path="res://assets/cards/2_c.png" id="2_i0r0c"]
+
+[node name="Card" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_4pniv")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(0, 0, 92, 0, 92, 128, 0, 128)
+
+[node name="CardImage" type="Polygon2D" parent="."]
+texture = ExtResource("2_i0r0c")
+polygon = PackedVector2Array(0, 0, 92, 0, 92, 128, 0, 128)

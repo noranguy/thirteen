@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://cltlwg68qsgbr"]
+
+[ext_resource type="Script" uid="uid://gnf75ss5dv5t" path="res://scripts/InPlay/GameManager.cs" id="1_xc5wh"]
+[ext_resource type="Texture2D" uid="uid://gaeuasamrgmc" path="res://assets/button.png" id="2_l6ykv"]
+[ext_resource type="Texture2D" uid="uid://p8a4pg6jb0wh" path="res://assets/InPlay/background.png" id="3_tfwcd"]
+
+[node name="InPlay" type="Node2D"]
+script = ExtResource("1_xc5wh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Table" type="HBoxContainer" parent="."]
+offset_left = -360.0
+offset_top = -25.0
+offset_right = 340.0
+offset_bottom = 125.0
+scale = Vector2(0.333, 0.333)
+pivot_offset = Vector2(350, 75)
+theme_override_constants/separation = 70
+alignment = 1
+
+[node name="Button" type="TextureButton" parent="."]
+offset_left = 240.0
+offset_top = -30.0
+offset_right = 270.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("2_l6ykv")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -5
+offset_left = -320.0
+offset_top = -183.0
+offset_right = 1280.0
+offset_bottom = 717.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_tfwcd")

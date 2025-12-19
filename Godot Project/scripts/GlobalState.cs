@@ -27,4 +27,18 @@ public partial class GlobalState : Node
 		playerLoadPosition = position;
 	}
 
+	// in play stuff
+	
+	public bool allowCardSelect = true;
+	
+	public readonly Random Rand = new Random();
+	
+	
+	public readonly string[] RankOrder = new string[] {
+		"3", "4", "5", "6", "7", "8", "9", "10", "j", "q", "k", "a", "2"
+	};
+	
+	public readonly string[] SuitOrder = new string[] {
+		"s", "c", "d", "h"
+	};
 }
