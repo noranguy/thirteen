@@ -107,7 +107,7 @@ public partial class Card : Control, IComparable<Card> {
 	
 	public void UpdateTexture() {
 		string fileName = visible ? $"{rank}_{suit}" : "back";
-		var texture = GD.Load<Texture2D>($"res://assets/cards/{fileName}.png");
+		var texture = GD.Load<Texture2D>($"res://assets/cards_art/{fileName}.png");
 		sprite.Texture = texture;
 	}
 	
